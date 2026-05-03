@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vortex Rocket Design — Foguetemodelismo UNESP</title>
+  <meta name="description" content="Equipe de foguetemodelismo da UNESP/FESJ. Desenvolvemos foguetes de propelente sólido, eletrônica embarcada e CanSats. 8º entre 110+ equipes na LASC 2023. Duas missões aprovadas para LASC 2026.">
+  <meta name="theme-color" content="#080810">
+  <link rel="canonical" href="./index.html">
+  <link rel="icon" href="./assets/fotos/logo%20principal%20da%20equipe.jpg" type="image/jpeg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Vortex Rocket Design — Foguetemodelismo UNESP">
+  <meta property="og:description" content="Estudantes desenvolvendo foguetes de propelente sólido, eletrônica embarcada e CanSats. 8º entre 110+ equipes na LASC 2023. Duas missões aprovadas para LASC 2026.">
+  <meta property="og:image" content="./assets/fotos/SaveClip.App_581186753_18073336982196024_5743745909866851361_n.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <img src="./assets/fotos/logo%20principal%20da%20equipe.jpg" alt="" class="loader__logo">
+      <div class="loader__bar"><span></span></div>
+      <div class="loader__label">CARREGANDO SISTEMAS</div>
+    </div>
+  </div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Nav -->
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a href="#hero" class="nav__brand" aria-label="Vortex Rocket Design — início">
+        <img src="./assets/fotos/logo%20principal%20da%20equipe.jpg" alt="" class="nav__logo">
+        <span class="nav__wordmark">VORTEX</span>
+      </a>
+      <nav class="nav__menu" id="nav-menu" aria-label="Menu principal">
+        <a href="#missao">Missão</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#tecnologia">Tecnologia</a>
+        <a href="#patrocinio">Patrocínio</a>
+        <a href="#time">Time</a>
+        <a href="#midia">Mídia</a>
+        <a href="#historico">Histórico</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <button class="nav__burger" id="nav-burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <video class="hero__video" id="hero-video" autoplay muted loop playsinline preload="metadata"
+           poster="./assets/fotos/SaveClip.App_581186753_18073336982196024_5743745909866851361_n.jpg">
+      <source src="./assets/fotos/SaveClip.App_AQNAbi0R-TNaN0mOa0MmUPpQZ_ZdqKgnXHmVgdAHO5ZflIuXKyZ_5fTDlSGc7l02tNx6RAPu6ZdziJNbGELK5nPO.mp4" type="video/mp4">
+    </video>
+    <div class="hero__overlay"></div>
+    <div class="hero__noise" aria-hidden="true"></div>
+
+    <div class="hero__content container">
+      <div class="hero__eyebrow" data-reveal>UNESP — FACULDADE DE ENGENHARIA DE SÃO JOÃO DA BOA VISTA</div>
+      <h1 class="hero__title" data-split>FOGUETES PROJETADOS, CONSTRUÍDOS E LANÇADOS POR ESTUDANTES.</h1>
+      <p class="hero__lead" data-reveal>A Vortex Rocket Design é a equipe de foguetemodelismo da UNESP/FESJ. Desenvolvemos foguetes de propelente sólido, eletrônica embarcada e CanSats — do CAD à rampa de lançamento.</p>
+
+      <div class="hero__cta" data-reveal>
+        <a href="#patrocinio" class="btn btn--primary" data-magnetic>
+          <span>PATROCINE A VORTEX</span>
+          <span class="btn__arrow">→</span>
+        </a>
+        <a href="#projetos" class="btn btn--ghost" data-magnetic>
+          <span>Conheça os projetos</span>
+          <span class="btn__arrow">→</span>
+        </a>
+      </div>
+
+      <div class="hero__metrics" data-reveal data-stagger>
+        <div class="metric">
+          <div class="metric__value"><span data-count="8">0</span><span class="metric__suffix">º</span></div>
+          <div class="metric__label">LASC 2023 — entre 110+ equipes</div>
+        </div>
+        <div class="metric">
+          <div class="metric__value"><span data-count="1">0</span><span class="metric__suffix"> KM</span></div>
+          <div class="metric__label">Apogeu projetado — Foguete VOID</div>
+        </div>
+        <div class="metric">
+          <div class="metric__value"><span data-count="2">0</span></div>
+          <div class="metric__label">Missões aprovadas — LASC 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span>SCROLL</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Faixa de transição -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>VORTEX ROCKET DESIGN</span><span>·</span>
+      <span>UNESP / FESJ</span><span>·</span>
+      <span>SÃO JOÃO DA BOA VISTA</span><span>·</span>
+      <span>LASC 2026</span><span>·</span>
+      <span>VOID II</span><span>·</span>
+      <span>ATLAS</span><span>·</span>
+      <span>VORTEX ROCKET DESIGN</span><span>·</span>
+      <span>UNESP / FESJ</span><span>·</span>
+      <span>SÃO JOÃO DA BOA VISTA</span><span>·</span>
+      <span>LASC 2026</span><span>·</span>
+      <span>VOID II</span><span>·</span>
+      <span>ATLAS</span><span>·</span>
+    </div>
+  </div>
+
+  <!-- Missão -->
+  <section class="section section--missao" id="missao">
+    <div class="section__bg" aria-hidden="true">
+      <img src="./assets/fotos/SaveClip.App_573573166_18072807959196024_758942064389037165_n.jpg" alt="" loading="lazy" style="object-position: 50% 75%;">
+    </div>
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow" data-reveal>MISSÃO</span>
+        <h2 class="section__title" data-split>ENGENHARIA AEROESPACIAL ESTUDANTIL.</h2>
+      </div>
+      <div class="missao__grid">
+        <p class="lead" data-reveal>Fundada em 7 de junho de 2019, a Vortex nasceu da iniciativa de discentes dos cursos de Engenharia Aeronáutica e Engenharia Eletrônica e de Telecomunicações para criar um projeto de extensão dedicado ao setor aeroespacial.</p>
+        <div class="missao__body" data-reveal data-stagger>
+          <p>O grupo participa de competições de foguetemodelismo, desenvolve satélites de pesquisa (CanSats e CubeSats) e conduz pesquisas tecnológicas com ênfase no setor aeroespacial — um setor estratégico para o avanço tecnológico, econômico e social do Brasil.</p>
+          <p>Mais do que competir, formamos engenheiros: cada projeto é uma trincheira de aprendizado prático onde teoria de termodinâmica, resistência de materiais, eletrônica embarcada e gestão de projeto encontram a realidade dura de testes estáticos, lançamentos e prazos. A Vortex traduz currículo em hardware que voa.</p>
+        </div>
+      </div>
+
+      <div class="pillars" data-reveal data-stagger>
+        <div class="pillar">
+          <div class="pillar__num">01</div>
+          <h3>Competir</h3>
+          <p>Latin American Space Challenge (LASC) e, em médio prazo, Spaceport America Cup.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar__num">02</div>
+          <h3>Pesquisar</h3>
+          <p>Propulsão SRAD, otimização por algoritmo genético, sistemas embarcados de baixo custo.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar__num">03</div>
+          <h3>Divulgar</h3>
+          <p>Oficinas em escolas públicas, publicação bilíngue, artigos em SBGf e COBENGE.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projetos -->
+  <section class="section section--projetos" id="projetos">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow" data-reveal>PROJETOS</span>
+        <h2 class="section__title" data-split>QUATRO PROJETOS. UMA CURVA DE APRENDIZADO.</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="project project--featured" data-tilt data-reveal>
+          <div class="project__media">
+            <img src="./assets/fotos/SaveClip.App_581186753_18073336982196024_5743745909866851361_n.jpg" alt="Foguete VOID em pleno voo deixando rastro de fumaça contra céu nublado" loading="lazy">
+            <span class="project__badge">DESTAQUE</span>
+          </div>
+          <div class="project__body">
+            <div class="project__meta">
+              <span class="project__year">2025</span>
+              <span class="project__cat">LASC 1 KM</span>
+              <span class="project__status project__status--done">Concluído</span>
+            </div>
+            <h3 class="project__title">VOID</h3>
+            <p class="project__desc">Primeiro foguete SRAD completo da Vortex — propulsão, aerostrutura e aviônica todas in-house. Ejeção por gás frio CO₂ desenhada pela equipe. Dois CanSats como carga útil.</p>
+            <ul class="project__specs">
+              <li><strong>Motor:</strong> SRAD K-class — Ø 6,35 cm × 51 cm — KNSB — ~1517 N·s</li>
+              <li><strong>Estrutura:</strong> fibra de vidro · ogiva Von Kármán · aletas Selig S1012 clipped delta</li>
+              <li><strong>Aviônica:</strong> Teensy 4.1 · BMP390 + MS5611 · MPU9250 · GPS BE-880 · LoRa RA-02</li>
+              <li><strong>Recuperação:</strong> dual-deploy — drogue 16" + principal 72" — ejeção CO₂ frio</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="project" data-tilt data-reveal>
+          <div class="project__media">
+            <img src="./assets/fotos/SaveClip.App_581190099_18073336973196024_2761299334260464273_n.jpg" alt="Foguete Delta V na rampa de lançamento" loading="lazy" style="object-position: 50% 30%;">
+          </div>
+          <div class="project__body">
+            <div class="project__meta">
+              <span class="project__year">2023</span>
+              <span class="project__cat">LASC 500 M</span>
+              <span class="project__status project__status--done">8º / 21</span>
+            </div>
+            <h3 class="project__title">Delta V</h3>
+            <p class="project__desc">Estreia da equipe na LASC. Fuselagem em Tritan HT impressa em 3D, motor KNSB com grãos BATES, aviônica ESP32 + dois barômetros e separação por servo perfurando cilindro de CO₂.</p>
+          </div>
+        </article>
+
+        <article class="project" data-tilt data-reveal>
+          <div class="project__media">
+            <img src="./assets/fotos/SaveClip.App_660831208_18087350741196024_4719493310244701973_n.jpg" alt="Anúncio LASC 2026 — VOID II SRM 1 km" loading="lazy" style="object-position: 25% 50%;">
+          </div>
+          <div class="project__body">
+            <div class="project__meta">
+              <span class="project__year">2026</span>
+              <span class="project__cat">LASC SRM 1 KM</span>
+              <span class="project__status project__status--wip">Em desenvolvimento</span>
+            </div>
+            <h3 class="project__title">VOID II</h3>
+            <p class="project__desc">Evolução direta do VOID. Lições aprendidas em manufatura, integração e telemetria aplicadas ao salto seguinte da equipe. Missão aceita pela LASC 7.</p>
+          </div>
+        </article>
+
+        <article class="project" data-tilt data-reveal>
+          <div class="project__media">
+            <img src="./assets/fotos/SaveClip.App_660831208_18087350741196024_4719493310244701973_n.jpg" alt="Anúncio LASC 2026 — ATLAS CanSat" loading="lazy" style="object-position: 75% 50%;">
+          </div>
+          <div class="project__body">
+            <div class="project__meta">
+              <span class="project__year">2026</span>
+              <span class="project__cat">CANSAT</span>
+              <span class="project__status project__status--wip">Em desenvolvimento</span>
+            </div>
+            <h3 class="project__title">ATLAS</h3>
+            <p class="project__desc">CanSat completo com sensores embarcados, transmissão de dados e recuperação independente. Inaugura o setor de Satélites da Vortex e marca a primeira missão de payload autônomo da equipe.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Tecnologia -->
+  <section class="section section--tech" id="tecnologia">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow" data-reveal>TECNOLOGIA</span>
+        <h2 class="section__title" data-split>O QUE COMPÕE UM FOGUETE VORTEX.</h2>
+        <p class="lead lead--center" data-reveal>Tudo é projetado, fabricado e testado nas dependências da UNESP/FESJ — do propelente à PCB. Quatro pilares técnicos sustentam cada missão.</p>
+      </div>
+
+      <div class="tech-grid">
+
+        <article class="tech-card" data-reveal>
+          <div class="tech-card__num" aria-hidden="true">01</div>
+          <div class="tech-card__media">
+            <img src="./assets/fotos/SaveClip.App_575622666_18072988196196024_5777384739247622500_n.jpg" alt="Inspeção técnica do motor" loading="lazy" style="object-position: 50% 35%;">
+          </div>
+          <h3>Propulsão e Propelente</h3>
+          <ul>
+            <li>Propelente <strong>KNSB</strong> (nitrato de potássio + sorbitol) — não-tóxico e fabricação interna.</li>
+            <li>Purificação de KNO₃ por recristalização em laboratório.</li>
+            <li>Câmara em alumínio 6063-T5; tubeira e anteparo em aço 1045.</li>
+            <li><strong>Algoritmo genético em Python</strong> otimiza geometria do grão e diâmetro de garganta.</li>
+            <li>Teste estático full-scale antes de cada missão.</li>
+          </ul>
+        </article>
+
+        <article class="tech-card" data-reveal>
+          <div class="tech-card__num" aria-hidden="true">02</div>
+          <div class="tech-card__media">
+            <img src="./assets/fotos/SaveClip.App_580456992_18073336889196024_2927677440498458274_n.jpg" alt="Equipe montando o foguete VOID em fibra de vidro" loading="lazy">
+          </div>
+          <h3>Estruturas e Aerodinâmica</h3>
+          <ul>
+            <li>Fuselagem em <strong>fibra de vidro</strong> com lay-up úmido (epóxi + tecido 330 g) sobre mandril de PVC.</li>
+            <li>Ogiva <strong>Von Kármán</strong> moldada em molde fêmea bipartido FDM em ABS.</li>
+            <li>Aletas <strong>clipped delta</strong> com perfil <strong>Selig S1012</strong> em sandwich fibra-epóxi.</li>
+            <li>Couplers de alumínio com 8 parafusos M4 garantem rigidez modular.</li>
+            <li>Análises com <strong>OpenRocket, SolidWorks e Ansys</strong>.</li>
+          </ul>
+        </article>
+
+        <article class="tech-card" data-reveal>
+          <div class="tech-card__num" aria-hidden="true">03</div>
+          <div class="tech-card__media">
+            <img src="./assets/fotos/SaveClip.App_580509397_18073336910196024_1745759833514221173_n.jpg" alt="Bay de aviônica do foguete VOID em close" loading="lazy" style="object-position: 30% 50%;">
+          </div>
+          <h3>Eletrônica e Recuperação</h3>
+          <ul>
+            <li>Microcontrolador <strong>ESP32</strong> com cartão MicroSD onboard.</li>
+            <li>Barômetros redundantes <strong>BMP390 + MS5611</strong> com filtro de média móvel.</li>
+            <li>IMU <strong>MPU9250</strong> · GPS <strong>NEO M8N</strong> · telemetria <strong>LoRa E32 433D33T</strong>.</li>
+            <li><strong>Sistema de ejeção a CO₂ frio</strong> — uma carga pirotécnica perfura o cilindro; o gás cisalha parafusos de náilon e libera o paraquedas.</li>
+            <li>Sem gases quentes, sem dano aos paraquedas, sem wadding.</li>
+          </ul>
+        </article>
+
+        <article class="tech-card" data-reveal>
+          <div class="tech-card__num" aria-hidden="true">04</div>
+          <div class="tech-card__media">
+            <img src="./assets/fotos/SaveClip.App_660831208_18087350741196024_4719493310244701973_n.jpg" alt="Anúncio oficial das missões LASC 2026 — VOID II e CanSat ATLAS" loading="lazy" style="object-position: 50% 30%;">
+          </div>
+          <h3>Satélites e Carga Útil</h3>
+          <ul>
+            <li>Vortex CanSat (ID #249), parceria UNESP × IFSP.</li>
+            <li><strong>EPS</strong> com bateria de <strong>íon-sódio</strong> — proof of concept TRL-3.</li>
+            <li>Sistema de navegação tolerante a falhas com sensores inerciais e magnetômetro.</li>
+            <li>Switch limitado por corrente em high-side como kill-switch por software.</li>
+            <li>Setor próprio criado em 2026 para sustentar a missão ATLAS.</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Patrocínio -->
+  <section class="section section--patrocinio" id="patrocinio">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow" data-reveal>PATROCÍNIO</span>
+        <h2 class="section__title" data-split>COLOCA SUA MARCA NA RAMPA.</h2>
+        <p class="lead lead--center" data-reveal>Patrocinar a Vortex é financiar engenharia real — feita por estudantes que projetam, fabricam, testam e lançam. Sua marca vai para a camisa que cruza a LASC, o relatório técnico oficial e o foguete que decola.</p>
+      </div>
+
+      <div class="benefits" data-reveal data-stagger>
+        <div class="benefit">
+          <div class="benefit__num">01</div>
+          <h3>Visibilidade técnica</h3>
+          <p>Material institucional, mídia em rede, presença em eventos universitários e congressos como SBGf e COBENGE.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit__num">02</div>
+          <h3>Formação de talento</h3>
+          <p>Apoie a próxima geração de engenheiros aeroespaciais brasileiros.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit__num">03</div>
+          <h3>Internacionalização</h3>
+          <p>Competições e publicações bilíngues amplificam alcance fora do Brasil.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit__num">04</div>
+          <h3>Impacto social</h3>
+          <p>Oficinas em escolas públicas e divulgação científica de base.</p>
+        </div>
+      </div>
+
+      <div class="sponsors" data-reveal>
+        <div class="sponsors__label">PATROCINADORES OFICIAIS</div>
+        <div class="sponsors__list">
+          <div class="sponsor">PROGRAD<span>UNESP</span></div>
+          <div class="sponsor">SOLIDWORKS</div>
+          <div class="sponsor">CANSAT</div>
+        </div>
+      </div>
+
+      <div class="sponsors-cta" data-reveal>
+        <a href="https://www.instagram.com/vortexrocketdesign" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--xl" data-magnetic>
+          <span>QUERO PATROCINAR</span>
+          <span class="btn__arrow">→</span>
+        </a>
+        <p class="sponsors-cta__hint">Falar diretamente com a equipe pelo Instagram</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Time -->
+  <section class="section section--time" id="time">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow" data-reveal>TIME</span>
+        <h2 class="section__title" data-split>27 ESTUDANTES. SEIS SETORES.</h2>
+        <p class="lead lead--center" data-reveal>A Vortex opera com 27 membros distribuídos em seis setores especializados. Cada subsistema do foguete e do satélite tem dono — e cada dono carrega o hardware pela rampa.</p>
+      </div>
+
+      <div class="team-mosaic" data-reveal data-stagger>
+        <div class="team-mosaic__item team-mosaic__item--lg" data-parallax="0.08">
+          <img src="./assets/fotos/SaveClip.App_573573166_18072807959196024_758942064389037165_n.jpg" alt="Time Vortex completo posando com o foguete em evento da LASC" loading="lazy" style="object-position: 50% 75%;">
+        </div>
+        <div class="team-mosaic__item" data-parallax="-0.05">
+          <img src="./assets/fotos/SaveClip.App_580568483_18073336943196024_1192995026285555255_n.jpg" alt="Equipe na rampa observando lançamento" loading="lazy" style="object-position: 50% 30%;">
+        </div>
+        <div class="team-mosaic__item" data-parallax="0.06">
+          <img src="./assets/fotos/SaveClip.App_580901588_18073336919196024_7126517276177345314_n.jpg" alt="Membros da equipe em ambiente de competição" loading="lazy" style="object-position: 50% 25%;">
+        </div>
+        <div class="team-mosaic__item" data-parallax="-0.04">
+          <img src="./assets/fotos/SaveClip.App_579663515_18073336865196024_6328208711738068895_n.jpg" alt="Equipe trabalhando em mesa no campo da LASC" loading="lazy" style="object-position: 50% 25%;">
+        </div>
+        <div class="team-mosaic__item team-mosaic__item--md" data-parallax="0.05">
+          <img src="./assets/fotos/SaveClip.App_582247912_18073337000196024_3819872166967309514_n.jpg" alt="Equipe comemorando a recuperação do foguete VOID a 2.011,78 m do ponto de lançamento" loading="lazy" style="object-position: 50% 20%;">
+        </div>
+      </div>
+
+      <div class="team-stats" data-reveal data-stagger>
+        <div class="stat"><div class="stat__num"><span data-count="27">0</span></div><div class="stat__label">Membros ativos</div></div>
+        <div class="stat"><div class="stat__num"><span data-count="6">0</span></div><div class="stat__label">Setores</div></div>
+        <div class="stat"><div class="stat__num"><span data-count="2">0</span></div><div class="stat__label">Instituições parceiras</div></div>
+        <div class="stat"><div class="stat__num"><span data-count="6">0</span></div><div class="stat__label">Anos de atividade</div></div>
+      </div>
+
+      <div class="sectors" data-reveal data-stagger>
+        <div class="sector"><div class="sector__num">01</div><h3>Estruturas e Aerodinâmica</h3><p>Projeto da fuselagem, simulações CFD/FEA, manufatura de compostos.</p></div>
+        <div class="sector"><div class="sector__num">02</div><h3>Propulsão e Propelente</h3><p>Formulação química, testes estáticos, manufatura de motores.</p></div>
+        <div class="sector"><div class="sector__num">03</div><h3>Eletrônica e Recuperação</h3><p>Sistemas embarcados, telemetria, ejeção e paraquedas.</p></div>
+        <div class="sector sector--new"><div class="sector__num">04</div><h3>Satélites <span class="sector__tag">NOVO 2026</span></h3><p>Desenvolvimento de CanSats e CubeSats. Setor criado em 2026 para sustentar a missão ATLAS.</p></div>
+        <div class="sector"><div class="sector__num">05</div><h3>Administração</h3><p>Gestão, cronograma, documentação técnica e relatórios oficiais.</p></div>
+        <div class="sector"><div class="sector__num">06</div><h3>Marketing e Compras</h3><p>Divulgação institucional, captação de patrocínio, aquisição de materiais.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mídia -->
+  <section class="section section--midia" id="midia">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow" data-reveal>EM AÇÃO</span>
+        <h2 class="section__title" data-split>HARDWARE QUE VOA.</h2>
+        <p class="lead lead--center" data-reveal>Os ensaios em solo terminam quando o motor pega fogo. O resto é vento, gravidade e o que a equipe construiu para resistir aos dois.</p>
+      </div>
+
+      <div class="midia-grid">
+        <div class="midia-grid__photos" data-reveal data-stagger>
+          <figure>
+            <img src="./assets/fotos/SaveClip.App_581186753_18073336982196024_5743745909866851361_n.jpg" alt="Foguete VOID em pleno voo deixando rastro de fumaça vertical" loading="lazy">
+          </figure>
+          <figure>
+            <img src="./assets/fotos/SaveClip.App_581190099_18073336973196024_2761299334260464273_n.jpg" alt="Foguete na rampa de lançamento contra céu aberto" loading="lazy" style="object-position: 50% 30%;">
+          </figure>
+          <figure>
+            <img src="./assets/fotos/SaveClip.App_579689055_18073336952196024_7816694975317264194_n.jpg" alt="Equipe na rampa preparando o lançamento do VOID" loading="lazy" style="object-position: 50% 40%;">
+          </figure>
+          <figure>
+            <img src="./assets/fotos/SaveClip.App_580568483_18073336943196024_1192995026285555255_n.jpg" alt="Equipe observando o foguete na rampa antes do lançamento" loading="lazy" style="object-position: 50% 30%;">
+          </figure>
+        </div>
+        <div class="midia-grid__video" data-reveal>
+          <video controls preload="metadata" poster="./assets/fotos/SaveClip.App_581186753_18073336982196024_5743745909866851361_n.jpg">
+            <source src="./assets/fotos/SaveClip.App_AQMkACj6D0W9z7_Uk8-doWg2gmqY4ubQsHflud5jnbd3VX9Refe5P6_AWZ1aZluQ9k61aFeJTd1835Xk_aqaWAjN.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Histórico -->
+  <section class="section section--historico" id="historico">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow" data-reveal>HISTÓRICO</span>
+        <h2 class="section__title" data-split>SEIS ANOS, UMA TRAJETÓRIA.</h2>
+      </div>
+
+      <div class="timeline" id="timeline">
+        <div class="timeline__line" id="timeline-line"><span></span></div>
+
+        <article class="timeline__item timeline__item--left" data-reveal>
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <div class="timeline__year">2019</div>
+            <h3>Fundação</h3>
+            <p>A equipe é fundada em 7 de junho por discentes de Engenharia Aeronáutica e Engenharia Eletrônica e de Telecomunicações da UNESP/FESJ. Nasce o projeto de extensão.</p>
+          </div>
+        </article>
+
+        <article class="timeline__item timeline__item--right" data-reveal>
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <div class="timeline__year">2023</div>
+            <h3>LASC: estreia com Delta V</h3>
+            <p>Primeira participação em competição. O foguete Delta V — propelente sólido KNSB, fuselagem em Tritan HT impressa em 3D, eletrônica ESP32 — disputa a categoria de 500 m. Resultado: <strong>8º lugar entre 21 equipes na categoria</strong> e <strong>29º na classificação geral entre mais de 110 equipes</strong>.</p>
+          </div>
+        </article>
+
+        <article class="timeline__item timeline__item--left" data-reveal>
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <div class="timeline__year">2024</div>
+            <h3>LASC cancelada</h3>
+            <p>A edição é cancelada em decorrência das queimadas na região do evento. A equipe redireciona o esforço para o salto seguinte: 1 km de apogeu.</p>
+          </div>
+        </article>
+
+        <article class="timeline__item timeline__item--right" data-reveal>
+          <div class="timeline__dot"></div>
+          <div class="timeline__card timeline__card--media">
+            <img src="./assets/fotos/SaveClip.App_581190099_18073336973196024_2761299334260464273_n.jpg" alt="Foguete VOID na rampa de lançamento em campo de cana-de-açúcar" loading="lazy" style="object-position: 50% 30%;">
+            <div class="timeline__year">2025</div>
+            <h3>Projeto VOID — 1 km</h3>
+            <p>Primeiro foguete SRAD da equipe para 1 km de apogeu. KNSB com purificação interna de KNO₃, fuselagem 100% em fibra de vidro, dual-deploy com ejeção a CO₂ frio, aviônica Teensy 4.1 com barômetros redundantes. Carga útil: dois CanSats.</p>
+          </div>
+        </article>
+
+        <article class="timeline__item timeline__item--left" data-reveal>
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <div class="timeline__year">2025</div>
+            <h3>Recuperação a 2.011,78 m</h3>
+            <p>O sistema de recuperação coloca o foguete em descida controlada e o GPS embarcado guia a equipe até o ponto de pouso — a <strong>2.011,78 m</strong> do local de lançamento. A telemetria provou seu valor.</p>
+          </div>
+        </article>
+
+        <article class="timeline__item timeline__item--right" data-reveal>
+          <div class="timeline__dot timeline__dot--accent"></div>
+          <div class="timeline__card timeline__card--featured">
+            <img src="./assets/fotos/SaveClip.App_660831208_18087350741196024_4719493310244701973_n.jpg" alt="Anúncio oficial das missões aceitas para a LASC 2026: VOID II e ATLAS" loading="lazy">
+            <div class="timeline__year">2026</div>
+            <h3>Duas missões + setor de Satélites</h3>
+            <p>A LASC 7 confirma a participação da Vortex com duas missões simultâneas: <strong>VOID II</strong> (foguete SRM 1 km) e <strong>ATLAS</strong> (CanSat). Para sustentar a frente dupla, a equipe estrutura um <strong>sexto setor — Satélites</strong> — dedicado ao desenvolvimento do CanSat ATLAS.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato + Footer -->
+  <section class="section section--contato" id="contato">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow" data-reveal>CONTATO</span>
+        <h2 class="section__title" data-split>FALA COM A GENTE.</h2>
+      </div>
+
+      <div class="contato">
+        <a href="https://www.instagram.com/vortexrocketdesign" target="_blank" rel="noopener noreferrer" class="contato__primary" data-magnetic data-reveal>
+          <div class="contato__label">INSTAGRAM</div>
+          <div class="contato__handle">@vortexrocketdesign</div>
+          <div class="contato__arrow">→</div>
+        </a>
+
+        <div class="contato__meta" data-reveal data-stagger>
+          <div><span class="contato__k">Instituição</span><span class="contato__v">UNESP / FESJ — Faculdade de Engenharia de São João da Boa Vista</span></div>
+          <div><span class="contato__k">Local</span><span class="contato__v">São João da Boa Vista, SP — Brasil</span></div>
+          <div><span class="contato__k">Desde</span><span class="contato__v">7 de junho de 2019</span></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <img src="./assets/fotos/logo%20principal%20da%20equipe.jpg" alt="" class="footer__logo">
+          <span class="footer__wordmark">VORTEX ROCKET DESIGN</span>
+        </div>
+        <div class="footer__meta">
+          <p>UNESP / FESJ — São João da Boa Vista, SP</p>
+          <p>Site construído pela equipe — 2026</p>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <script src="./script.js"></script>
+</body>
+</html>
