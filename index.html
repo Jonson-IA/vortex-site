@@ -21,6 +21,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./style.css">
+  <noscript>
+    <style>
+      /* Sem JS, nada revela [data-reveal] e o site fica em branco. */
+      .loader { display: none; }
+      [data-reveal] { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
 </head>
 <body>
 
@@ -70,7 +77,7 @@
 
     <div class="hero__content container">
       <div class="hero__eyebrow" data-reveal>UNESP — FACULDADE DE ENGENHARIA DE SÃO JOÃO DA BOA VISTA</div>
-      <h1 class="hero__title" data-split>FOGUETES PROJETADOS, CONSTRUÍDOS E LANÇADOS POR ESTUDANTES.</h1>
+      <h1 class="hero__title" data-split data-split-accent="POR ESTUDANTES.">FOGUETES PROJETADOS, CONSTRUÍDOS E LANÇADOS POR ESTUDANTES.</h1>
       <p class="hero__lead" data-reveal>A Vortex Rocket Design é a equipe de foguetemodelismo da UNESP/FESJ. Desenvolvemos foguetes de propelente sólido, eletrônica embarcada e CanSats — do CAD à rampa de lançamento.</p>
 
       <div class="hero__cta" data-reveal>
@@ -86,15 +93,15 @@
 
       <div class="hero__metrics" data-reveal data-stagger>
         <div class="metric">
-          <div class="metric__value"><span data-count="8">0</span><span class="metric__suffix">º</span></div>
+          <div class="metric__value"><span data-count="8">8</span><span class="metric__suffix">º</span></div>
           <div class="metric__label">LASC 2023 — entre 110+ equipes</div>
         </div>
         <div class="metric">
-          <div class="metric__value"><span data-count="1">0</span><span class="metric__suffix"> KM</span></div>
+          <div class="metric__value"><span data-count="1">1</span><span class="metric__suffix"> KM</span></div>
           <div class="metric__label">Apogeu projetado — Foguete VOID</div>
         </div>
         <div class="metric">
-          <div class="metric__value"><span data-count="2">0</span></div>
+          <div class="metric__value"><span data-count="2">2</span></div>
           <div class="metric__label">Missões aprovadas — LASC 2026</div>
         </div>
       </div>
@@ -211,7 +218,7 @@
 
         <article class="project" data-tilt data-reveal>
           <div class="project__media">
-            <img src="./assets/fotos/SaveClip.App_660831208_18087350741196024_4719493310244701973_n.jpg" alt="Anúncio LASC 2026 — VOID II SRM 1 km" loading="lazy" style="object-position: 25% 50%;">
+            <img class="q q--br" src="./assets/fotos/SaveClip.App_573698806_18072897677196024_7861695492488582038_n.jpg" alt="Foguete SRAD montado, segurado pela equipe durante a integração" loading="lazy">
           </div>
           <div class="project__body">
             <div class="project__meta">
@@ -226,7 +233,7 @@
 
         <article class="project" data-tilt data-reveal>
           <div class="project__media">
-            <img src="./assets/fotos/SaveClip.App_660831208_18087350741196024_4719493310244701973_n.jpg" alt="Anúncio LASC 2026 — ATLAS CanSat" loading="lazy" style="object-position: 75% 50%;">
+            <img class="q q--bl" src="./assets/fotos/SaveClip.App_573698806_18072897677196024_7861695492488582038_n.jpg" alt="Integrantes trabalhando na eletrônica embarcada em bancada" loading="lazy">
           </div>
           <div class="project__body">
             <div class="project__meta">
@@ -251,6 +258,55 @@
         <h2 class="section__title" data-split>O QUE COMPÕE UM FOGUETE VORTEX.</h2>
         <p class="lead lead--center" data-reveal>Tudo é projetado, fabricado e testado nas dependências da UNESP/FESJ — do propelente à PCB. Quatro pilares técnicos sustentam cada missão.</p>
       </div>
+
+      <figure class="flight" data-reveal>
+        <figcaption class="flight__cap">
+          <span class="flight__cap-k">PERFIL DE VOO</span>
+          <span class="flight__cap-v">VOID — LASC 2025 · simulação do relatório de missão</span>
+        </figcaption>
+        <svg class="flight__svg" viewBox="0 0 1000 410" role="img"
+             aria-labelledby="flight-t flight-d" preserveAspectRatio="xMidYMid meet">
+          <title id="flight-t">Perfil de voo do foguete VOID</title>
+          <desc id="flight-d">Trajetória em seis eventos: ignição, burnout a 1,4 segundos e 100 metros por segundo, apogeu de 1.220 metros aos 18 segundos, abertura do drogue de 16 polegadas no apogeu, abertura do paraquedas principal de 72 polegadas, e pouso a 2.011,78 metros do ponto de lançamento após cerca de 100 segundos de voo.</desc>
+
+          <defs>
+            <linearGradient id="fl-grad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#D98CFF"/>
+              <stop offset="38%" stop-color="#BB44FF"/>
+              <stop offset="100%" stop-color="#0066FF"/>
+            </linearGradient>
+          </defs>
+
+          <line class="flight__ground" x1="40" y1="330" x2="960" y2="330"/>
+          <line class="flight__tick" x1="90" y1="330" x2="90" y2="338"/>
+          <line class="flight__tick" x1="900" y1="330" x2="900" y2="338"/>
+
+          <path class="flight__guide" d="M 90 330 L 90 88"/>
+          <path class="flight__guide" d="M 430 88 L 430 330"/>
+
+          <path class="flight__path" d="M 90 330 C 170 300 330 170 430 88"/>
+          <path class="flight__path flight__path--drogue" d="M 430 88 C 500 130 560 165 625 196"/>
+          <path class="flight__path flight__path--main" d="M 625 196 C 700 245 810 300 900 330"/>
+
+          <circle class="flight__pt" cx="90"  cy="330" r="5"/>
+          <circle class="flight__pt" cx="243" cy="238" r="5"/>
+          <circle class="flight__pt flight__pt--apex" cx="430" cy="88" r="7"/>
+          <circle class="flight__pt" cx="625" cy="196" r="5"/>
+          <circle class="flight__pt" cx="900" cy="330" r="5"/>
+
+          <text class="flight__lbl" x="90"  y="360" text-anchor="middle">IGNIÇÃO</text>
+          <text class="flight__lbl" x="262" y="256" text-anchor="start">BURNOUT</text>
+          <text class="flight__num" x="262" y="272" text-anchor="start">1,4 s · 100 m/s</text>
+          <text class="flight__lbl" x="430" y="56"  text-anchor="middle">APOGEU</text>
+          <text class="flight__num flight__num--apex" x="430" y="36" text-anchor="middle">1.220 m · 18 s</text>
+          <text class="flight__lbl" x="640" y="180" text-anchor="start">DROGUE 16"</text>
+          <text class="flight__lbl" x="790" y="270" text-anchor="start">PRINCIPAL 72"</text>
+          <text class="flight__lbl" x="900" y="360" text-anchor="middle">POUSO</text>
+          <text class="flight__num" x="900" y="376" text-anchor="middle">100 s de voo</text>
+
+          <text class="flight__axis" x="495" y="394" text-anchor="middle">← 2.011,78 m do ponto de lançamento até o pouso →</text>
+        </svg>
+      </figure>
 
       <div class="tech-grid">
 
@@ -302,7 +358,7 @@
         <article class="tech-card" data-reveal>
           <div class="tech-card__num" aria-hidden="true">04</div>
           <div class="tech-card__media">
-            <img src="./assets/fotos/SaveClip.App_660831208_18087350741196024_4719493310244701973_n.jpg" alt="Anúncio oficial das missões LASC 2026 — VOID II e CanSat ATLAS" loading="lazy" style="object-position: 50% 30%;">
+            <img class="q q--tr" src="./assets/fotos/SaveClip.App_573698806_18072897677196024_7861695492488582038_n.jpg" alt="Teste de abertura de paraquedas realizado pela equipe" loading="lazy">
           </div>
           <h3>Satélites e Carga Útil</h3>
           <ul>
@@ -353,9 +409,28 @@
       <div class="sponsors" data-reveal>
         <div class="sponsors__label">PATROCINADORES OFICIAIS</div>
         <div class="sponsors__list">
-          <div class="sponsor">PROGRAD<span>UNESP</span></div>
-          <div class="sponsor">SOLIDWORKS</div>
-          <div class="sponsor">CANSAT</div>
+          <div class="sponsor">
+            <span class="sponsor__name">PROGRAD<span>UNESP</span></span>
+          </div>
+          <div class="sponsor">
+            <span class="sponsor__name">SOLIDWORKS</span>
+          </div>
+          <div class="sponsor">
+            <img class="sponsor__logo" src="./assets/logos/ansys.svg" alt="" loading="lazy">
+            <span class="sponsor__name">ANSYS</span>
+          </div>
+          <div class="sponsor">
+            <img class="sponsor__logo sponsor__logo--wide" src="./assets/logos/jlcpcb.svg" alt="" loading="lazy">
+            <span class="sponsor__name">JLCPCB</span>
+          </div>
+          <div class="sponsor">
+            <img class="sponsor__logo sponsor__logo--wide" src="./assets/logos/easyeda.png" alt="" loading="lazy">
+            <span class="sponsor__name">EASYEDA</span>
+          </div>
+          <div class="sponsor">
+            <img class="sponsor__logo sponsor__logo--paulinho" src="./assets/logos/paulinho-lanches.png" alt="" loading="lazy">
+            <span class="sponsor__name">PAULINHO LANCHES</span>
+          </div>
         </div>
       </div>
 
@@ -397,10 +472,10 @@
       </div>
 
       <div class="team-stats" data-reveal data-stagger>
-        <div class="stat"><div class="stat__num"><span data-count="27">0</span></div><div class="stat__label">Membros ativos</div></div>
-        <div class="stat"><div class="stat__num"><span data-count="6">0</span></div><div class="stat__label">Setores</div></div>
-        <div class="stat"><div class="stat__num"><span data-count="2">0</span></div><div class="stat__label">Instituições parceiras</div></div>
-        <div class="stat"><div class="stat__num"><span data-count="6">0</span></div><div class="stat__label">Anos de atividade</div></div>
+        <div class="stat"><div class="stat__num"><span data-count="27">27</span></div><div class="stat__label">Membros ativos</div></div>
+        <div class="stat"><div class="stat__num"><span data-count="6">6</span></div><div class="stat__label">Setores</div></div>
+        <div class="stat"><div class="stat__num"><span data-count="2">2</span></div><div class="stat__label">Instituições parceiras</div></div>
+        <div class="stat"><div class="stat__num"><span data-count="6">6</span></div><div class="stat__label">Anos de atividade</div></div>
       </div>
 
       <div class="sectors" data-reveal data-stagger>

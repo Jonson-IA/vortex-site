@@ -29,56 +29,71 @@ strong { font-weight: 600; color: var(--ink); }
 
 /* ---------- 2. Tokens ---------- */
 :root {
-  /* Fundos */
-  --bg: #080810;
-  --bg-elev: #11111b;
-  --bg-card: #161622;
-  --bg-overlay-strong: rgba(8, 8, 16, 0.92);
-  --bg-overlay-soft: rgba(8, 8, 16, 0.55);
+  /* Fundos — preto arroxeado */
+  --bg: #0A0710;
+  --bg-elev: #130D1C;
+  --bg-card: #1A1226;
+  --bg-overlay-strong: rgba(10, 7, 16, 0.92);
+  --bg-overlay-soft: rgba(10, 7, 16, 0.55);
 
-  /* Fogo */
-  --fire-1: #FF4500;
-  --fire-2: #FF8C00;
-  --fire-3: #FFB700;
+  /* Acento — nome neutro de tema: trocar a cor do site mexe so neste bloco */
+  --accent-1: #BB44FF;
+  --accent-blue: #1E90FF;
+  --accent-deep: #0066FF;
+  --accent-blue-rgb: 30, 144, 255;
+  --accent-deep-rgb: 0, 102, 255;
+  --accent-2: #7A0FD6;
+  --accent-3: #E4B0FF;
+  --accent-1-rgb: 187, 68, 255;
+
+  /* Aliases historicos — CSS legado ainda referencia --fire-* e --red-* */
+  --fire-1: var(--accent-1);
+  --fire-2: var(--accent-2);
+  --fire-3: var(--accent-3);
+  --red-1: var(--accent-1);
+  --red-2: var(--accent-2);
+  --red-3: var(--accent-3);
 
   /* Texto */
-  --ink: #F5F5F7;
-  --ink-mut: #9999A8;
-  --ink-faint: #4A4A5A;
+  --ink: #F4F1F8;
+  --ink-mut: #A5A0B0;
+  --ink-faint: #837E90;
 
-  /* Linhas */
-  --line: rgba(245, 245, 247, 0.08);
-  --line-loud: rgba(245, 245, 247, 0.18);
+  --line: rgba(244, 241, 248, 0.08);
+  --line-loud: rgba(244, 241, 248, 0.18);
 
-  /* Gradientes */
-  --grad-fire: linear-gradient(135deg, #FFB700 0%, #FF8C00 45%, #FF4500 100%);
-  --grad-ink-down: linear-gradient(180deg, rgba(8,8,16,0) 0%, rgba(8,8,16,0.4) 50%, rgba(8,8,16,0.95) 100%);
-  --grad-ink-radial: radial-gradient(ellipse at center, rgba(8,8,16,0) 0%, rgba(8,8,16,0.6) 70%, rgba(8,8,16,0.95) 100%);
+  --grad-accent: linear-gradient(135deg, #D98CFF 0%, #BB44FF 38%, #0066FF 100%);
+  --grad-red: var(--grad-accent);
+  --grad-fire: var(--grad-accent);
+  --grad-ink-down: linear-gradient(180deg, rgba(10,7,16,0) 0%, rgba(10,7,16,0.4) 50%, rgba(10,7,16,0.95) 100%);
+  --grad-ink-radial: radial-gradient(ellipse at center, rgba(10,7,16,0) 0%, rgba(10,7,16,0.6) 70%, rgba(10,7,16,0.95) 100%);
 
-  /* Fontes */
+  --shadow-accent: 0 18px 50px -18px rgba(var(--accent-1-rgb), 0.5);
+  --shadow-red: var(--shadow-accent);
+  --shadow-deep: 0 24px 70px -24px rgba(0, 0, 0, 0.8);
+
   --font-display: "Bebas Neue", "Impact", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  /* Tipografia */
-  --fs-h1: clamp(2.25rem, 6.2vw, 5.5rem);
-  --fs-h2: clamp(1.75rem, 3.6vw, 3.25rem);
-  --fs-h3: clamp(1.25rem, 1.8vw, 1.625rem);
-  --fs-eyebrow: 0.75rem;
-  --fs-lead: clamp(1rem, 1.2vw, 1.125rem);
+  --fs-h1: clamp(2.5rem, 5.4vw, 5.25rem);
+  --fs-h2: clamp(1.875rem, 4vw, 3.75rem);
+  --fs-h3: clamp(1.25rem, 1.9vw, 1.75rem);
+  --fs-eyebrow: 0.6875rem;
+  --fs-lead: clamp(1.0625rem, 1.35vw, 1.3125rem);
   --fs-body: 1rem;
   --fs-small: 0.8125rem;
-  --fs-metric: clamp(2.25rem, 4.8vw, 4rem);
+  --fs-metric: clamp(2.75rem, 6vw, 5.5rem);
 
-  /* Espaçamento */
   --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px;
   --s-6: 40px; --s-7: 64px; --s-8: 96px; --s-9: 128px; --s-10: 160px;
 
-  /* Layout */
   --container-max: 1280px;
   --container-pad: 24px;
 
-  /* Animation */
+  --radius: 2px;
+  --radius-lg: 4px;
+
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in:  cubic-bezier(0.7, 0, 0.84, 0);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -124,6 +139,12 @@ strong { font-weight: 600; color: var(--ink); }
 }
 .lead--center { margin-inline: auto; text-align: center; }
 
+/* Foco visivel em TODO interativo. :where() = especificidade 0, nao atropela regras proprias. */
+:where(a, button, video, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent-1);
+  outline-offset: 3px;
+}
+
 /* ---------- 4. Loader ---------- */
 .loader {
   position: fixed; inset: 0;
@@ -131,7 +152,10 @@ strong { font-weight: 600; color: var(--ink); }
   z-index: 9999;
   display: flex; align-items: center; justify-content: center;
   transition: opacity 600ms var(--ease-out), visibility 0s 600ms;
+  /* Rede de seguranca em CSS puro: sem isto, JS bloqueado deixa o site preto */
+  animation: loader-failsafe 0s 4s forwards;
 }
+@keyframes loader-failsafe { to { opacity: 0; visibility: hidden; } }
 .loader.is-done { opacity: 0; visibility: hidden; }
 .loader__inner { text-align: center; }
 .loader__logo {
@@ -139,7 +163,7 @@ strong { font-weight: 600; color: var(--ink); }
   border-radius: 50%;
   margin-bottom: var(--s-5);
   animation: spin 2.4s linear infinite;
-  filter: drop-shadow(0 0 24px rgba(255, 69, 0, 0.4));
+  filter: drop-shadow(0 0 24px rgba(var(--accent-1-rgb), 0.45));
 }
 .loader__bar {
   width: 240px; height: 2px;
@@ -185,7 +209,7 @@ strong { font-weight: 600; color: var(--ink); }
   border-bottom: 1px solid transparent;
 }
 .nav.is-scrolled {
-  background: rgba(17, 17, 27, 0.78);
+  background: rgba(19, 13, 28, 0.78);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   border-bottom-color: var(--line);
@@ -267,14 +291,15 @@ strong { font-weight: 600; color: var(--ink); }
 }
 .hero__noise {
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle at 20% 50%, rgba(255, 140, 0, 0.06) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 20%, rgba(255, 183, 0, 0.04) 0%, transparent 50%);
+  background-image: radial-gradient(circle at 20% 50%, rgba(var(--accent-1-rgb), 0.10) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(var(--accent-deep-rgb), 0.08) 0%, transparent 50%);
   z-index: -1;
   pointer-events: none;
 }
 .hero__content {
   position: relative; z-index: 1;
-  padding-block: var(--s-8) var(--s-6);
+  /* Reserva a faixa do indicador de scroll, que e absoluto no rodape do hero */
+  padding-block: var(--s-8) var(--s-9);
   width: 100%;
 }
 .hero__eyebrow {
@@ -339,8 +364,9 @@ strong { font-weight: 600; color: var(--ink); }
 }
 .btn:hover .btn__arrow { transform: translateX(6px); }
 .btn--primary {
-  background: var(--fire-1);
-  color: var(--bg);
+  background: var(--accent-2);
+  color: #fff;
+  box-shadow: var(--shadow-accent);
 }
 .btn--primary::before {
   content: "";
@@ -352,14 +378,14 @@ strong { font-weight: 600; color: var(--ink); }
 }
 .btn--primary:hover::before { transform: translateX(0); }
 .btn--primary > * { position: relative; z-index: 1; }
-.btn--primary:hover { transform: translateY(-2px); }
+.btn--primary:hover { transform: translateY(-2px); box-shadow: 0 22px 60px -18px rgba(var(--accent-1-rgb), 0.65); }
 .btn--ghost {
   background: transparent;
   color: var(--ink);
   border: 1px solid var(--line-loud);
   padding: calc(var(--s-4) - 1px) calc(var(--s-5) - 1px);
 }
-.btn--ghost:hover { border-color: var(--ink); background: rgba(245, 245, 247, 0.04); }
+.btn--ghost:hover { border-color: var(--ink); background: rgba(244, 241, 248, 0.05); }
 .btn--xl { padding: var(--s-5) var(--s-7); font-size: 0.9375rem; }
 .btn:focus-visible { outline: 2px solid var(--fire-3); outline-offset: 4px; }
 
@@ -382,7 +408,7 @@ strong { font-weight: 600; color: var(--ink); }
   font-family: var(--font-display);
   font-size: var(--fs-metric);
   line-height: 1;
-  color: var(--ink);
+  color: var(--accent-3);
   display: flex; align-items: baseline;
   letter-spacing: 0.02em;
 }
@@ -427,6 +453,12 @@ strong { font-weight: 600; color: var(--ink); }
 @keyframes scroll-line {
   0% { transform: translateY(0); }
   100% { transform: translateY(300%); }
+}
+
+/* Em telas baixas nao ha faixa livre para o indicador — some em vez de colidir */
+@media (max-height: 820px) {
+  .hero__scroll { display: none; }
+  .hero__content { padding-block: var(--s-7) var(--s-6); }
 }
 
 /* ---------- 9. Marquee ---------- */
@@ -498,7 +530,7 @@ strong { font-weight: 600; color: var(--ink); }
 .section__bg::after {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, var(--bg) 0%, rgba(8,8,16,0.7) 50%, var(--bg) 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(10,7,16,0.7) 50%, var(--bg) 100%);
 }
 .section > .container { position: relative; z-index: 1; }
 
@@ -575,7 +607,7 @@ strong { font-weight: 600; color: var(--ink); }
   background: var(--grad-fire);
   height: 0;
   transition: height var(--t-med) linear;
-  box-shadow: 0 0 24px rgba(255, 140, 0, 0.5);
+  box-shadow: 0 0 24px rgba(var(--accent-1-rgb), 0.55);
 }
 .timeline__item {
   position: relative;
@@ -596,7 +628,7 @@ strong { font-weight: 600; color: var(--ink); }
 }
 .timeline__dot--accent {
   background: var(--fire-1);
-  box-shadow: 0 0 0 4px rgba(255, 69, 0, 0.2), 0 0 32px var(--fire-1);
+  box-shadow: 0 0 0 4px rgba(var(--accent-1-rgb), 0.22), 0 0 32px var(--fire-1);
 }
 .timeline__item--left .timeline__dot { right: -8px; }
 .timeline__item--right .timeline__dot { left: -8px; }
@@ -672,7 +704,7 @@ strong { font-weight: 600; color: var(--ink); }
   grid-column: span 6;
   will-change: transform;
 }
-.project:hover { border-color: var(--line-loud); }
+.project:hover { border-color: rgba(var(--accent-1-rgb), 0.55); box-shadow: var(--shadow-deep); }
 .project--featured {
   grid-column: 1 / -1;
   flex-direction: row;
@@ -729,8 +761,8 @@ strong { font-weight: 600; color: var(--ink); }
   border: 1px solid var(--line-loud);
   color: var(--ink-mut);
 }
-.project__status--done { color: var(--ink); border-color: rgba(255, 183, 0, 0.4); }
-.project__status--wip { color: var(--fire-2); border-color: rgba(255, 140, 0, 0.4); }
+.project__status--done { color: var(--ink); border-color: rgba(var(--accent-1-rgb), 0.45); }
+.project__status--wip { color: var(--accent-3); border-color: rgba(var(--accent-blue-rgb), 0.45); }
 .project__title {
   font-family: var(--font-display);
   font-size: clamp(1.875rem, 3vw, 2.75rem);
@@ -781,12 +813,12 @@ strong { font-weight: 600; color: var(--ink); }
   font-size: clamp(3.5rem, 8vw, 7rem);
   line-height: 1;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(245, 245, 247, 0.06);
+  -webkit-text-stroke: 1px rgba(244, 241, 248, 0.07);
   letter-spacing: 0.02em;
   pointer-events: none;
   transition: -webkit-text-stroke var(--t-med);
 }
-.tech-card:hover .tech-card__num { -webkit-text-stroke: 1px rgba(255, 140, 0, 0.18); }
+.tech-card:hover .tech-card__num { -webkit-text-stroke: 1px rgba(var(--accent-1-rgb), 0.22); }
 .tech-card__media {
   width: 100%; aspect-ratio: 16 / 9;
   overflow: hidden;
@@ -850,7 +882,7 @@ strong { font-weight: 600; color: var(--ink); }
 .team-mosaic__item::after {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(8,8,16,0.6) 100%);
+  background: linear-gradient(180deg, transparent 60%, rgba(10,7,16,0.6) 100%);
   pointer-events: none;
 }
 
@@ -891,7 +923,7 @@ strong { font-weight: 600; color: var(--ink); }
   position: relative;
 }
 .sector:hover { border-color: var(--line-loud); background: var(--bg-card); transform: translateY(-2px); }
-.sector--new { border-color: rgba(255, 69, 0, 0.4); }
+.sector--new { border-color: rgba(var(--accent-1-rgb), 0.45); }
 .sector--new::before {
   content: "";
   position: absolute; top: 0; left: 0; bottom: 0;
@@ -1010,6 +1042,7 @@ strong { font-weight: 600; color: var(--ink); }
   padding: var(--s-7);
   border: 1px solid var(--line);
   background: var(--bg-elev);
+  isolation: isolate;
   position: relative;
 }
 .sponsors::before {
@@ -1029,24 +1062,33 @@ strong { font-weight: 600; color: var(--ink); }
 }
 .sponsors__list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--s-6);
+  /* auto-fit: a faixa absorve 3, 4 ou 8 patrocinadores sem tocar no CSS */
+  grid-template-columns: repeat(auto-fit, minmax(140px, 200px));
+  justify-content: center;
+  gap: var(--s-6) var(--s-7);
   align-items: center;
   justify-items: center;
-  max-width: 720px;
+  max-width: 960px;
   margin-inline: auto;
 }
 .sponsor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* caixa de altura fixa alinha opticamente logos de proporções diferentes */
+  height: 96px;
+  width: 100%;
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 2.5vw, 2.25rem);
   letter-spacing: 0.03em;
   color: var(--ink);
   text-align: center;
   line-height: 1.05;
-  transition: color var(--t-med), transform var(--t-med);
+  transition: color var(--t-med), transform var(--t-med), filter var(--t-med);
   cursor: default;
 }
-.sponsor span {
+.sponsor__name span {
   display: block;
   font-family: var(--font-mono);
   font-size: 0.6875rem;
@@ -1055,6 +1097,53 @@ strong { font-weight: 600; color: var(--ink); }
   margin-top: var(--s-1);
 }
 .sponsor:hover { color: var(--fire-3); transform: translateY(-2px); }
+
+/* Logo em imagem. O wordmark de texto continua no DOM como fallback:
+   script.js só promove para .sponsor--logo quando a imagem carrega de fato,
+   então um arquivo ausente degrada para texto em vez de quebrar a faixa. */
+.sponsor--logo .sponsor__name {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.sponsor__logo {
+  /* Normalizacao optica: a largura manda, a altura e capada por formato.
+     Sem isto, lockups altos (Ansys) dominam e faixas largas (JLCPCB) somem. */
+  max-width: 160px;
+  max-height: 64px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1) brightness(1.7);
+  opacity: 0.78;
+  transition: filter var(--t-med), opacity var(--t-med), transform var(--t-med);
+}
+/* Logos em faixa larga (ratio > 3:1) precisam de altura menor para igualar a massa visual */
+.sponsor__logo--wide { max-height: 34px; }
+.sponsor--logo:hover { transform: none; }
+.sponsor--logo:hover .sponsor__logo {
+  filter: none;
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* Paulinho Lanches: a arte original é um post 1080x1080 com fundo preto chapado
+   e endereço/telefone embutidos. clip-path recorta só a marca; screen apaga o
+   preto contra o fundo da faixa. Trocar por PNG transparente quando houver um. */
+.sponsor__logo--paulinho {
+  max-height: none;
+  max-width: none;
+  height: 200%;
+  width: auto;
+  clip-path: inset(19% 24% 32% 24%);
+  transform: translateY(6.5%);
+  mix-blend-mode: screen;
+}
+.sponsor--logo:hover .sponsor__logo--paulinho {
+  transform: translateY(6.5%) translateY(-2px);
+}
 
 .sponsors-cta {
   text-align: center;
@@ -1238,13 +1327,362 @@ strong { font-weight: 600; color: var(--ink); }
   .hero__cta .btn { justify-content: center; }
   .benefits { grid-template-columns: 1fr; }
   .sectors { grid-template-columns: 1fr; }
-  .sponsors__list { grid-template-columns: 1fr; gap: var(--s-5); }
+  .sponsors__list { grid-template-columns: repeat(auto-fit, minmax(120px, 160px)); gap: var(--s-5); }
+  .sponsor { height: 72px; }
   .timeline__card--media img,
   .timeline__card--featured img { height: 160px; }
   .contato__meta > div { grid-template-columns: 1fr; gap: var(--s-2); }
   .footer__inner { flex-direction: column; align-items: flex-start; }
   .footer__meta { text-align: left; }
 }
+
+/* ---------- 23. Camada de estilo — o roxo como linguagem, nao so acento ---------- */
+
+/* Brilho ambiente atras do hero: da profundidade sem pesar em imagem */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -20% -40% -20%;
+  height: 70%;
+  background: radial-gradient(ellipse at 50% 100%, rgba(var(--accent-1-rgb), 0.28) 0%, rgba(var(--accent-1-rgb), 0) 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Titulos de secao com queda para lilas — dá dimensao a tipografia display */
+.section__title {
+  background: linear-gradient(180deg, var(--ink) 30%, var(--accent-3) 140%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Nav ganha presenca roxa ao descolar do topo */
+.nav.is-scrolled {
+  border-bottom-color: rgba(var(--accent-1-rgb), 0.22);
+  box-shadow: 0 1px 30px -8px rgba(var(--accent-1-rgb), 0.35);
+}
+
+/* Superficies levemente tingidas — o roxo aparece no material, nao so nas bordas */
+.pillar, .tech-card, .sector, .benefit, .timeline__card {
+  background-image: linear-gradient(160deg, rgba(var(--accent-1-rgb), 0.05) 0%, rgba(var(--accent-1-rgb), 0) 55%);
+}
+.pillar:hover, .tech-card:hover, .sector:hover, .benefit:hover {
+  border-color: rgba(var(--accent-1-rgb), 0.45);
+  box-shadow: 0 16px 44px -20px rgba(var(--accent-1-rgb), 0.5);
+}
+
+/* Numeracao dos blocos em roxo vivo */
+.pillar__num, .benefit__num, .sector__num, .tech-card__num {
+  color: var(--accent-1);
+}
+
+/* Timeline: marcador com halo */
+.timeline__dot {
+  box-shadow: 0 0 0 4px rgba(var(--accent-1-rgb), 0.16);
+}
+.timeline__year { color: var(--accent-3); }
+
+/* Marquee assume o roxo */
+.marquee__track span:nth-child(2n) { color: var(--accent-1); }
+
+/* Badge de destaque */
+.project__badge {
+  background: var(--accent-2);
+  color: #fff;
+}
+
+/* Barra de progresso de scroll no gradiente roxo */
+.scroll-progress { background: var(--grad-accent); }
+
+/* ---------- 24. Percurso de cor + tratamento unificado de imagem ---------- */
+
+/* O laranja original percorria ambar -> vermelho. O roxo percorre fucsia -> violeta -> indigo,
+   e cada papel na pagina pega um ponto diferente desse percurso. Sem isso o site vira monocromia. */
+.eyebrow, .hero__eyebrow { color: var(--accent-blue); }
+.eyebrow::before { background: var(--grad-accent); }
+.timeline__year { color: var(--accent-blue); }
+.marquee__track span:nth-child(2n) { color: var(--accent-blue); }
+.project__year, .tech-card__num { color: var(--accent-1); }
+.pillar__num, .benefit__num, .sector__num { color: var(--accent-blue); }
+.metric__value, .stat__num { color: var(--accent-3); }
+.project__badge { background: var(--grad-accent); color: #fff; }
+
+/* Brilho do hero com os dois extremos do percurso, nao um roxo chapado */
+.hero::after {
+  background:
+    radial-gradient(ellipse at 30% 100%, rgba(var(--accent-blue-rgb), 0.22) 0%, rgba(var(--accent-blue-rgb), 0) 60%),
+    radial-gradient(ellipse at 75% 100%, rgba(var(--accent-deep-rgb), 0.30) 0%, rgba(var(--accent-deep-rgb), 0) 62%);
+}
+.section__title {
+  background: linear-gradient(180deg, var(--ink) 22%, var(--accent-1) 88%, var(--accent-blue) 150%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* --- Tratamento unificado de fotografia ---
+   As fotos sao exports crus de Instagram, com temperaturas muito diferentes entre si.
+   Um filtro unico + tingimento roxo faz a fotografia pertencer ao sistema em vez de parecer colada. */
+.project__media, .tech-card__media, .team-mosaic__item, .midia-grid__photos figure,
+.timeline__card--media, .timeline__card--featured { position: relative; isolation: isolate; }
+
+.project__media::after, .tech-card__media::after, .team-mosaic__item::after,
+.midia-grid__photos figure::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(155deg, rgba(var(--accent-1-rgb), 0.07) 0%, rgba(var(--accent-deep-rgb), 0.12) 100%);
+  mix-blend-mode: color;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project__media img, .tech-card__media img, .team-mosaic__item img,
+.midia-grid__photos figure img, .timeline__card img {
+  filter: saturate(0.9) contrast(1.05) brightness(0.97);
+  transition: filter var(--t-med), transform var(--t-med) var(--ease-out);
+}
+.project:hover .project__media img,
+.tech-card:hover .tech-card__media img,
+.team-mosaic__item:hover img {
+  filter: saturate(1) contrast(1.03) brightness(1.03);
+}
+
+/* Recorte de quadrante: as fotos de bastidores vieram como colagem 2x2 do Instagram.
+   O <img> e' ampliado a 200% e deslocado, de modo que so um quadrante fique na janela. */
+img.q {
+  position: absolute;
+  width: 200%; height: 200%;
+  max-width: none;
+  object-fit: cover;
+}
+img.q--tl { left: 0;     top: 0; }
+img.q--tr { left: -100%; top: 0; }
+img.q--bl { left: 0;     top: -100%; }
+img.q--br { left: -100%; top: -100%; }
+
+/* Palavra em destaque do H1 — cria o foco que faltava na manchete */
+.hero__title .word--accent .char {
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- 25. Perfil de voo ---------- */
+.flight {
+  margin: 0 0 var(--s-8);
+  padding: var(--s-6) var(--s-5) var(--s-5);
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  position: relative;
+  isolation: isolate;
+}
+.flight::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--grad-accent);
+}
+.flight__cap {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s-3) var(--s-5);
+  margin-bottom: var(--s-5);
+  font-family: var(--font-mono);
+}
+.flight__cap-k {
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.22em;
+  color: var(--accent-blue);
+}
+.flight__cap-v {
+  font-size: var(--fs-small);
+  color: var(--ink-mut);
+}
+.flight__svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+.flight__ground { stroke: var(--line-loud); stroke-width: 1; }
+.flight__tick   { stroke: var(--line-loud); stroke-width: 1; }
+.flight__guide  { stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 6; fill: none; }
+
+.flight__path {
+  fill: none;
+  stroke: url(#fl-grad);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+/* Descida sob drogue e sob principal em tracejado: distingue fase propulsada de fase de recuperacao */
+.flight__path--drogue { stroke-width: 2.5; stroke-dasharray: 9 7; }
+.flight__path--main   { stroke-width: 2.5; stroke-dasharray: 3 6; }
+
+.flight__pt { fill: var(--bg-elev); stroke: var(--accent-1); stroke-width: 2; }
+.flight__pt--apex { stroke: var(--accent-3); stroke-width: 3; }
+
+.flight__lbl {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  fill: var(--ink);
+}
+.flight__num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  fill: var(--ink-mut);
+}
+.flight__num--apex { fill: var(--accent-3); font-size: 13px; }
+.flight__axis {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  fill: var(--ink-faint);
+}
+
+@media (max-width: 767px) {
+  /* Abaixo disso os rotulos do SVG colidem — o diagrama rola na horizontal */
+  .flight { overflow-x: auto; }
+  .flight__svg { min-width: 680px; }
+}
+
+/* ---------- 26. Refino tipografico e de ritmo ---------- */
+
+/* Brilho do hero percorre os dois extremos: roxo de um lado, azul do outro */
+.hero::after {
+  background:
+    radial-gradient(ellipse at 28% 100%, rgba(var(--accent-1-rgb), 0.26) 0%, rgba(var(--accent-1-rgb), 0) 60%),
+    radial-gradient(ellipse at 78% 100%, rgba(var(--accent-deep-rgb), 0.28) 0%, rgba(var(--accent-deep-rgb), 0) 62%);
+}
+
+/* Segunda voz tipografica: Bebas condensada carrega titulo de secao;
+   Inter em peso alto carrega titulo de card. Sem isso o site inteiro fala no mesmo tom. */
+.pillar h3, .tech-card h3, .sector h3, .benefit h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+.pillar h3, .tech-card h3 { font-size: 1.3125rem; line-height: 1.25; }
+.sector h3 { font-size: 1.0625rem; line-height: 1.3; }
+.benefit h3 { font-size: 1.0625rem; line-height: 1.3; }
+
+/* Lead ganha presenca editorial com filete no acento */
+.lead {
+  border-left: 2px solid var(--accent-1);
+  padding-left: var(--s-5);
+}
+.lead--center {
+  border-left: 0;
+  padding-left: 0;
+  border-top: 2px solid var(--accent-1);
+  padding-top: var(--s-5);
+  max-width: 62ch;
+}
+
+/* Timeline: marcador alinhado ao ano, nao ao topo do card */
+.timeline__dot { top: var(--s-6); }
+/* Ritmo mais apertado — seis marcos nao precisam de tanto scroll */
+.timeline__item + .timeline__item { margin-top: calc(var(--s-6) * -1); }
+
+@media (max-width: 959px) {
+  .timeline__item + .timeline__item { margin-top: var(--s-5); }
+  .timeline__dot { top: var(--s-5); }
+}
+
+/* A numeracao dos cards e' marca d'agua, nao titulo — em roxo cheio ela competia com a foto */
+.tech-card__num { color: var(--accent-1); opacity: 0.22; }
+.tech-card:hover .tech-card__num { opacity: 0.4; }
+
+/* ---------- 27. Fundo: grao + brilhos ambientes ---------- */
+
+/* Grao fino aplicado no body e visivel atraves das secoes.
+   Nao e' enfeite: gradientes amplos sobre fundo escuro criam banding visivel em telas
+   de 8 bits, e o ruido quebra as faixas. De quebra da materialidade ao preto chapado. */
+body {
+  background-color: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+body::before {
+  /* Camada que suaviza o grao para uma intensidade utilizavel sem lavar o preto */
+  content: "";
+  position: fixed; inset: 0;
+  background: var(--bg);
+  opacity: 0.955;
+  z-index: -3;
+  pointer-events: none;
+}
+
+/* As secoes pintavam --bg opaco, tapando o grao. Transparentes, ele atravessa. */
+.section--historico, .section--projetos, .section--tech,
+.section--time, .section--midia, .section--patrocinio,
+.section--missao, .section--contato { background: transparent; }
+
+/* Brilho ambiente ancorado por secao, alternando os dois extremos do percurso.
+   Sem isto o site e' uma laje escura uniforme por nove secoes seguidas. */
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -10%; right: -10%;
+  height: 65%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+.section:nth-of-type(odd)::before {
+  background: radial-gradient(ellipse 60% 100% at 18% 0%, rgba(var(--accent-1-rgb), 0.16) 0%, rgba(var(--accent-1-rgb), 0) 70%);
+}
+.section:nth-of-type(even)::before {
+  background: radial-gradient(ellipse 60% 100% at 82% 0%, rgba(var(--accent-deep-rgb), 0.18) 0%, rgba(var(--accent-deep-rgb), 0) 70%);
+}
+
+/* Filete de luz separando as secoes — substitui o corte seco entre blocos */
+.section + .section::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(var(--accent-1-rgb), 0.28) 35%, rgba(var(--accent-deep-rgb), 0.28) 65%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------- 28. Fundo, parte 2 ---------- */
+
+/* Malha tecnica atras do perfil de voo. Mascarada em radial para nao bater nas bordas
+   como papel quadriculado barato — ela some antes de encostar na moldura. */
+.flight::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(var(--accent-1-rgb), 0.10) 0 1px, transparent 1px 48px),
+    repeating-linear-gradient(0deg,  rgba(var(--accent-1-rgb), 0.10) 0 1px, transparent 1px 48px);
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 45%, #000 0%, transparent 78%);
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 45%, #000 0%, transparent 78%);
+  pointer-events: none;
+  z-index: -1;
+}
+.flight__cap, .flight__svg { position: relative; z-index: 1; }
+
+/* Vinheta: escurece as bordas do viewport e puxa o olho para o centro.
+   Fixa, entao acompanha o scroll sem custo de repintura por secao. */
+body::after {
+  content: "";
+  position: fixed; inset: 0;
+  background: radial-gradient(ellipse 85% 70% at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.45) 100%);
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* Deriva lenta nos brilhos ambientes: o fundo deixa de ser estatico sem nada piscar.
+   Amplitude pequena de proposito — tem que ser percebido de canto de olho, nao notado. */
+@keyframes glow-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(3%, 2%, 0) scale(1.08); }
+}
+.section::before {
+  animation: glow-drift 26s var(--ease-out) infinite;
+  will-change: transform;
+}
+.section:nth-of-type(even)::before { animation-duration: 34s; animation-delay: -8s; }
 
 /* ---------- 21. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
@@ -1261,6 +1699,7 @@ strong { font-weight: 600; color: var(--ink); }
   .section__title .char { opacity: 1; transform: none; }
   .hero__video { display: none; }
   .marquee__track { animation: none; }
+  .section::before { animation: none; }
   .loader { display: none; }
 }
 

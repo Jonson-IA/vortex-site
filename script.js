@@ -12,6 +12,7 @@
    - Tilt 3D nos cards
    - Magnetic buttons
    - Parallax do hero video + mosaico do time
+   - Logo de patrocinador com fallback para wordmark
    ============================================================ */
 
 (() => {
@@ -67,6 +68,8 @@
   /* ---------- 5. Split text — preserva acentos e estrutura ---------- */
   const splitText = (el) => {
     const text = el.textContent;
+    // O trecho a destacar vem por atributo: splitText reescreve o no e perderia marcacao em HTML
+    const accentWords = (el.dataset.splitAccent || '').toLowerCase().split(/\s+/).filter(Boolean);
     el.textContent = '';
     const words = text.split(/(\s+)/);
     let charIndex = 0;
@@ -76,7 +79,7 @@
         return;
       }
       const wordSpan = document.createElement('span');
-      wordSpan.className = 'word';
+      wordSpan.className = accentWords.includes(token.toLowerCase()) ? 'word word--accent' : 'word';
       [...token].forEach(ch => {
         const charSpan = document.createElement('span');
         charSpan.className = 'char';
@@ -292,5 +295,25 @@
     }, { threshold: 0.1 });
     heroIo.observe(heroVideo);
   }
+
+  /* ---------- 14. Patrocinadores — logo com fallback para wordmark ----------
+     O texto em .sponsor__name é sempre o estado base. Só promovemos o item a
+     .sponsor--logo depois que a imagem confirma carregamento: assim um arquivo
+     ausente em assets/logos/ degrada para texto em vez de deixar buraco na faixa. */
+  document.querySelectorAll('.sponsor').forEach(item => {
+    const logo = item.querySelector('.sponsor__logo');
+    if (!logo) return;
+
+    const promote = () => item.classList.add('sponsor--logo');
+    const demote = () => logo.remove();
+
+    if (logo.complete) {
+      logo.naturalWidth > 0 ? promote() : demote();
+    } else {
+      logo.addEventListener('load', promote, { once: true });
+      logo.addEventListener('error', demote, { once: true });
+    }
+  });
+
 
 })();
